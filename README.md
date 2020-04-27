@@ -1,5 +1,6 @@
 ### React-admin-template-ant
-基于antd的后台管理模板  
+>基于antd的后台管理模板  
+
 Github: https://github.com/luozyiii/react-admin-template-ant
 
 #### 安装
@@ -28,9 +29,9 @@ yarn add antd
    /utils 工具函数
 ```
 
-#### 自定义配置
-1. npm run eject
-2. react-app-rewired(一个对 create-react-app 进行自定义配置的社区解决方案)  
+#### 自定义配置(方案二选一)
+1.npm run eject
+2.react-app-rewired(一个对 create-react-app 进行自定义配置的社区解决方案)  
 https://www.cnblogs.com/zyl-Tara/p/10635033.html
  
 ```
@@ -163,6 +164,22 @@ import renderRoutes from './renderRoutes'
     {renderRoutes(routes, authed, authPath)}
 </MyLayout>
 ```
+
+#### 接口aixos
+安装
+```
+yarn add aixos
+```
+
+目录
+```
+api 
+  axios.js
+  index.js
+```
+
+使用
+test页面
 
 
 #### 代理
