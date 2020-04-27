@@ -188,5 +188,78 @@ module.exports = function (app) {
 
 ```
 
+#### react-redux数据流
+1.安装 redux react-redux
+```
+yarn add redux react-redux
+```
+
+2.redux目录(方便管理)
+```
+redux
+   actions.js
+   reducers.js
+```
+
+根目录index.js
+```
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
+import rootReducer from '@/redux/reducers'
+
+ReactDOM.render(
+  <Provider store={store} >
+    <MyRouter />
+  </Provider>,
+  document.getElementById('root'))
+
+```
+
+3.测试  
+App.js 设置Redux值
+```
+import { connect } from 'react-redux'
+import { setDict } from '@/redux/actions'
+
+componentDidMount () {
+  this.setReduxTest()
+}
+
+setReduxTest () {
+  const { dispatch } = this.props
+  dispatch(setDict({ reduxText: 'test成功' }))
+}
+
+export default connect()(App)
+```
+
+test页面引用  
+```
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+class Test extends Component {
+  render () {
+    const { reduxText } = this.props
+    return (
+      <>
+        <h1>Test page</h1>
+        <br/><br/>
+        <h3>Redux测试</h3>
+        <p>reduxText: {reduxText}</p>
+      </>
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    reduxText: state.reduxText
+  }
+}
+
+export default connect(mapStateToProps)(Test)
+```
 
 
