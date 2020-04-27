@@ -131,5 +131,23 @@ import renderRoutes from './renderRoutes'
 yarn add http-proxy-middleware -D
 ```
 
+根目录新建setupProxy.js,内容如下
+```
+const proxy = require('http-proxy-middleware')
+
+module.exports = function (app) {
+  app.use(
+    proxy('/api', {
+      target: 'http://xx.xx.xx.xx:8000/',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': ''
+      }
+    })
+  )
+}
+
+```
+
 
 
