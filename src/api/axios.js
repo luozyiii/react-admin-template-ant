@@ -5,7 +5,7 @@ import { RES_SUC_CODE, RES_FAIL_DATED_CODE } from '@/config'
 const CancelToken = axios.CancelToken
 const source = CancelToken.source()
 
-const baseURL = '/xxxApis/'
+const baseURL = '/baseApis/'
 const instance = axios.create({
   baseURL,
   timeout: 15000,
