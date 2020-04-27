@@ -46,7 +46,6 @@ class MenuContent extends React.Component {
               item.title
             )}
           </NavLink>
-          {/* {item.icon || item.icon === "" ? <span><Icon type={item.icon} /><span>{item.title}</span></span> : item.title} */}
         </Menu.Item>
       );
     });

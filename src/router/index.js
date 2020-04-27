@@ -3,7 +3,11 @@ import App from '@/App'
 import MyLayout from '@/components/layout/Layout'
 import React, { Component } from 'react'
 import { Route, Switch, withRouter, BrowserRouter } from 'react-router-dom'
+import renderRoutes from './renderRoutes'
 import routes from './router'
+
+const authed = true // 如果登陆之后可以利用redux修改该值
+const authPath = '/login' // 默认未登录的时候返回的页面，可以自行设置
 
 class Router extends Component {
   constructor (props) {
@@ -22,10 +26,7 @@ class Router extends Component {
                 path="/"
                 render={() => (
                   <MyLayout>
-                    {routes.map((route, i) => (
-                      <Route key={route.key || i} path={route.path} exact={route.exact} strict={route.strict} component={withRouter(route.component)} />
-                    ))}
-                    {/* <Route exact path="/" component={withRouter(Home)} /> */}
+                    {renderRoutes(routes, authed, authPath)}
                   </MyLayout>
                 )}
               />
